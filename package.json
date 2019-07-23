@@ -1,6 +1,6 @@
 {
   "name": "video-editor",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A React video editor",
   "main": "dist/entry.js",
   "repository": "github:mrtrwhite/react-video-editor",
