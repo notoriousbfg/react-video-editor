@@ -1,6 +1,6 @@
 # React Video Editor
 
-![React Video Editor](./screenshot.png)
+![React Video Editor](https://raw.githubusercontent.com/mrtrwhite/react-video-editor/master/screenshot.png)
 
 A simple video editor with markers for a start and finish.
 

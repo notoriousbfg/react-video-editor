@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A React video editor",
   "main": "dist/entry.js",
+  "repository": "github:mrtrwhite/react-video-editor",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "events": "^3.0.0",
