@@ -17,7 +17,7 @@ class TimelineMarker extends React.Component {
         return (
             <div 
                 className={`ve-timeline-marker ve-timeline-marker-${this.props.start ? 'start' : 'end'}`}
-                style={{left: this.props.position + '%'}}>
+                style={{ left: this.props.start ? this.props.position + '%' : 'calc(' + this.props.position + '%' + ' - 15px)'}}>
             </div>
         )
     }

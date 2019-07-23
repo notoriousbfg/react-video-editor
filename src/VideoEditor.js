@@ -32,6 +32,13 @@ class VideoEditor extends React.Component {
 
         events.on('timelineClick', evt => this.handleTimelineClick(evt))
         events.on('dragTimelineMarker', evt => this.handleTimelineMarkerDrag(evt))
+        events.on('play', evt => this.play(evt))
+        events.on('pause', evt => this.pause(evt))
+        events.on('resetToStart', evt => this.resetToStart(evt))
+
+        if(this.props.onUpdate) {
+            events.on('boundsChanged', this.props.onUpdate)
+        }
     }
 
     setBufferedSeconds(evt) {
@@ -84,12 +91,32 @@ class VideoEditor extends React.Component {
                 this.handleTimelineClick(this.state.endPosition)
             }
         }
+        events.emit('boundsChanged', {
+            start: this.state.duration * (this.state.startPosition / 100),
+            end: this.state.duration * (this.state.endPosition / 100)
+        })
     }
 
     videoHasLoaded(evt) {
         this.setState({
             duration: this.videoRef.current.duration
         })
+    }
+
+    play(evt) {
+        this.videoRef.current.play()
+    }
+
+    pause(evt) {
+        this.videoRef.current.pause()
+    }
+
+    resetToStart(evt) {
+        this.videoRef.current.currentTime = this.state.duration * (this.state.startPosition / 100)
+    }
+
+    canPlay() {
+        return this.state.progress.percentage <= this.state.endPosition
     }
 
     render() {
@@ -100,15 +127,17 @@ class VideoEditor extends React.Component {
                         <video
                             ref={this.videoRef}
                             src={this.props.src}
-                            preload={this.props.preload}
+                            preload={this.props.preload.toString()}
                             className="ve-video"
-                            controls>
+                            muted={this.props.muted.toString()}>
                         </video>
                     </div>
                     <Timeline
                         progress={this.state.progress}
                         startPosition={this.state.startPosition}
-                        endPosition={this.state.endPosition}>
+                        endPosition={this.state.endPosition}
+                        isPlaying={this.state.isPlaying}
+                        canPlay={this.canPlay()}>
                     </Timeline>
                 </div>
             : null

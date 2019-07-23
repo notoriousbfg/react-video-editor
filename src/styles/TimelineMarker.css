@@ -1,10 +1,11 @@
 .ve-timeline-marker {
     width: 15px;
-    height: 100%;
+    height: 80%;
     position: absolute;
-    top: 0;
-    background: red;
+    top: 10%;
+    background: #6cd9ff;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 .ve-timeline-marker-start {
