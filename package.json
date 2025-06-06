@@ -24,7 +24,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^5.2.1"
   },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
