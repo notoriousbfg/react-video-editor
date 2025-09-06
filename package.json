@@ -9,7 +9,7 @@
     "events": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
